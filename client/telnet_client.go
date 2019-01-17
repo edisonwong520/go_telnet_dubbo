@@ -95,7 +95,6 @@ func (t *TelnetClient) ProcessData(inputData string, outputData io.Writer) {
 
 func (t *TelnetClient) readInputData(inputData string, toSent chan<- []byte, doneChannel chan<- bool) {
 	toSent <- []byte(inputData)
-
 	//t.assertEOF(error)
 	doneChannel <- true
 }
