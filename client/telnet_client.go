@@ -1,7 +1,6 @@
 package client
 
 import (
-	"bufio"
 	"bytes"
 	"fmt"
 	"io"
@@ -95,18 +94,21 @@ func (t *TelnetClient) ProcessData(inputData io.Reader, outputData io.Writer) {
 }
 
 func (t *TelnetClient) readInputData(inputData io.Reader, toSent chan<- []byte, doneChannel chan<- bool) {
-	buffer := make([]byte, defaultBufferSize)
-	var error error
-	var n int
-
-	reader := bufio.NewReader(inputData)
-
-	for nil == error {
-		n, error = reader.Read(buffer)
-		toSent <- buffer[:n]
-	}
-
-	t.assertEOF(error)
+	//buffer := make([]byte, defaultBufferSize)
+	//var error error
+	//var n int
+	//
+	//reader := bufio.NewReader(inputData)
+	//
+	//for nil == error {
+	//	n, error = reader.Read(buffer)
+	//	//toSent <- buffer[:n]
+	//	println("this is %c",string(buffer[:n]))
+	//}
+	cmd:=`invoke org.apache.dubbo.demo.DemoService.sayhello("hxx")`+"\n"
+	toSent <- []byte(cmd)
+	
+	//t.assertEOF(error)
 	doneChannel <- true
 }
 
