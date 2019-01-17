@@ -4,7 +4,7 @@ import (
 	"os"
 
 	"github.com/mtojek/go-telnet/client"
-	"github.com/mtojek/go-telnet/commandline"
+	
 )
 
 type goTelnet struct{}
@@ -20,7 +20,8 @@ func (g *goTelnet) run() {
 }
 
 func (g *goTelnet) createTelnetClient() *client.TelnetClient {
-	commandLine := commandline.Read()
-	telnetClient := client.NewTelnetClient(commandLine)
+	host:="localhost"
+	port:=20880
+	telnetClient := client.NewTelnetClient(host,port)
 	return telnetClient
 }

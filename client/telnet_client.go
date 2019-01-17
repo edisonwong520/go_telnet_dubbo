@@ -18,22 +18,22 @@ type TelnetClient struct {
 }
 
 // NewTelnetClient method creates new instance of TCP client.
-func NewTelnetClient(options Options) *TelnetClient {
-	tcpAddr := createTCPAddr(options)
+func NewTelnetClient(host string,port int) *TelnetClient {
+	tcpAddr := createTCPAddr(host,port)
 	resolved := resolveTCPAddr(tcpAddr)
 
 	return &TelnetClient{
 		destination:     resolved,
-		responseTimeout: options.Timeout(),
+		responseTimeout: 100000000,//defult timeout
 	}
 }
 
-func createTCPAddr(options Options) string {
+func createTCPAddr(host string,port int) string {
 	var buffer bytes.Buffer
-	buffer.WriteString(options.Host())
-	println("this is %c",options.Host())
+	buffer.WriteString(host)
+
 	buffer.WriteByte(':')
-	buffer.WriteString(fmt.Sprintf("%d", options.Port()))
+	buffer.WriteString(fmt.Sprintf("%d", port))
 	return buffer.String()
 }
 
