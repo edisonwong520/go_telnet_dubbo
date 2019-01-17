@@ -7,8 +7,9 @@
 ### Problem Definition
 
 Give a ip , port ,method name and parameter, test whether the Dubbo service on the ip:port works or not
-
-### Main code
+### Principle
+Create a TCP client which is responsible for sending data and printing response
+### Core code
 run Dubbo command in telnet
 ~~~
 func (g *goTelnet) run() {
