@@ -47,7 +47,7 @@ func resolveTCPAddr(addr string) *net.TCPAddr {
 }
 
 // ProcessData method processes data: reads from input and writes to output.
-func (t *TelnetClient) ProcessData(inputData io.Reader, outputData io.Writer) {
+func (t *TelnetClient) ProcessData(inputData string, outputData io.Writer) {
 
 	connection, error := net.DialTCP("tcp", nil, t.destination)
 	if nil != error {
@@ -93,7 +93,7 @@ func (t *TelnetClient) ProcessData(inputData io.Reader, outputData io.Writer) {
 	}
 }
 
-func (t *TelnetClient) readInputData(inputData io.Reader, toSent chan<- []byte, doneChannel chan<- bool) {
+func (t *TelnetClient) readInputData(inputData string, toSent chan<- []byte, doneChannel chan<- bool) {
 	//buffer := make([]byte, defaultBufferSize)
 	//var error error
 	//var n int
@@ -105,9 +105,9 @@ func (t *TelnetClient) readInputData(inputData io.Reader, toSent chan<- []byte, 
 	//	//toSent <- buffer[:n]
 	//	println("this is %c",string(buffer[:n]))
 	//}
-	cmd:=`invoke org.apache.dubbo.demo.DemoService.sayhello("hxx")`+"\n"
-	toSent <- []byte(cmd)
-	
+
+	toSent <- []byte(inputData)
+
 	//t.assertEOF(error)
 	doneChannel <- true
 }

@@ -15,7 +15,8 @@ func newGoTelnet() *goTelnet {
 
 func (g *goTelnet) run() {
 	telnetClient := g.createTelnetClient()
-	telnetClient.ProcessData(os.Stdin, os.Stdout)
+	cmd:=`invoke org.apache.dubbo.demo.DemoService.sayhello("hxx")`+"\n"
+	telnetClient.ProcessData(cmd, os.Stdout)
 }
 
 func (g *goTelnet) createTelnetClient() *client.TelnetClient {
