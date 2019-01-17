@@ -1,1 +1,0 @@
-invoke org.apache.dubbo.demo.DemoService.sayhello("hxx")
