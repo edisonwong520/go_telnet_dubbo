@@ -3,8 +3,7 @@
 
 ### Status: **Done**
 
-
-<br>
+<br>  
 ### Problem Definition
 
 Give a ip , port ,method name and parameter, test whether the Dubbo service on the ip:port works or not
@@ -23,7 +22,7 @@ func (g *goTelnet) run() {
 }
 ~~~
 
-<br>
+<br>  
 modify telnet ip and port  
 
 ~~~
@@ -34,8 +33,8 @@ func (g *goTelnet) createTelnetClient() *client.TelnetClient {
 	return telnetClient
 }
 ~~~
-<br>
-### Usage ###
+<br>  
+### Usage
 run command
 ~~~
 go install && go-telnet
@@ -44,8 +43,8 @@ or
 ~~~
 go run main.go
 ~~~
-<br>
-### Output ###
+<br>  
+### Output
 ~~~
 "hello,hxx!"
 elapsed: 0 ms.
