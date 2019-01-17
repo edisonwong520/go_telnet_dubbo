@@ -94,18 +94,6 @@ func (t *TelnetClient) ProcessData(inputData string, outputData io.Writer) {
 }
 
 func (t *TelnetClient) readInputData(inputData string, toSent chan<- []byte, doneChannel chan<- bool) {
-	//buffer := make([]byte, defaultBufferSize)
-	//var error error
-	//var n int
-	//
-	//reader := bufio.NewReader(inputData)
-	//
-	//for nil == error {
-	//	n, error = reader.Read(buffer)
-	//	//toSent <- buffer[:n]
-	//	println("this is %c",string(buffer[:n]))
-	//}
-
 	toSent <- []byte(inputData)
 
 	//t.assertEOF(error)
