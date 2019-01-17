@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-const defaultBufferSize = 40961
+const defaultBufferSize = 4096
 
 // TelnetClient represents a TCP client which is responsible for writing input data and printing response.
 type TelnetClient struct {
