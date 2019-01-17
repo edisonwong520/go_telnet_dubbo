@@ -6,7 +6,8 @@
 
 ### Problem Definition
 
-Give a ip , port ,method name and parameter, test whether the Dubbo service on the ip:port works or not
+Give a ip , port ,method name and parameter, test whether the Dubbo service on the ip:port works or not.
+This project can also be used as a simple telnet tool in go language.
 
 ### Principle
 Create a TCP client which is responsible for sending data and printing response
@@ -43,7 +44,7 @@ or
 ~~~
 go run main.go
 ~~~
-  
+
 ### Output
 ~~~
 "hello,hxx!"
